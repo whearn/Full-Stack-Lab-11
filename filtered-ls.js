@@ -3,10 +3,15 @@ var path = require('path');
 var file = process.argv[2];
 var extension = '.' + process.argv[3];
 
+//reads a directory/folder, and creates a string array with the names of the files
 fs.readdir(file, function(err, list) {
-    for (var i = 0; i < list.length; i++) {
-        if (path.extname(list[i]) === extension) {
-            console.log(list[i]);
+    if(err) {
+        console.log(err);
+    } else {
+        for (var i = 0; i < list.length; i++) {
+            if (path.extname(list[i]) === extension) {
+                console.log(list[i]);
+            }
         }
     }
 });

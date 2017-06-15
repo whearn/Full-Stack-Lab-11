@@ -1,8 +1,15 @@
 var fs = require('fs');
-fs.readFile(process.argv[2], function(err, contents) {
-    var str = contents.toString().split('\n');
 
-    console.log(str.length - 1);
+//read this file (process.argv[2]), and then perform this callback (function(err, contents){})
+fs.readFile(process.argv[2], function(err, contents) {
+    //always print out the error if there is one
+    if (err) {
+        console.log(err);
+    } else {
+        var str = contents.toString().split('\n');
+
+        console.log(str.length - 1);
+    }
 });
 
 // Solution
